@@ -1,0 +1,79 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --ping-color: #3B82F6;
+  --download-color: #10B981;
+  --upload-color: linear-gradient(90deg, #8B5CF6 0%, #EC4899 100%);
+  --background-color: #111827;
+  --text-primary: #F9FAFB;
+  --text-secondary: #9CA3AF;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.gauge-gradient-ping {
+  stop-color: #3B82F6;
+}
+
+.gauge-gradient-download {
+  stop-color: #10B981;
+}
+
+.gauge-gradient-upload-start {
+  stop-color: #8B5CF6;
+}
+
+.gauge-gradient-upload-end {
+  stop-color: #EC4899;
+}
+
+.needle-ping {
+  stroke: #3B82F6;
+}
+
+.needle-download {
+  stroke: #10B981;
+}
+
+.needle-upload {
+  stroke: #EC4899;
+}
+
+.gauge-background {
+  stroke: rgba(255, 255, 255, 0.1);
+}
+
+.button-primary {
+  @apply bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-200 flex items-center justify-center min-w-[200px];
+}
+
+.button-primary:disabled {
+  @apply bg-blue-800 cursor-not-allowed opacity-70;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+.animate-pulse-slow {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@media (max-width: 640px) {
+  .button-primary {
+    @apply w-full min-w-0;
+  }
+}
